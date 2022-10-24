@@ -19,6 +19,13 @@ def get_xgboost_x_y(
         target_sequence_length: The forecasting horizon, m
 
         input_seq_len: The length of the model input, n
+
+    Output: 
+
+        all_x: np.array of shape (number of instances, input seq len)
+
+        all_y: np.array of shape (number of instances, target seq len)
+
     """
     print("Preparing data..")
 
@@ -93,9 +100,8 @@ def get_indices_entire_sequence(
         that slices them into input and target sequences. 
         
         Args:
-            num_obs (int): Number of observations (time steps) in the entire 
-                           dataset for which indices must be generated, e.g. 
-                           len(data)
+            data (pd.DataFrame): Partitioned data set, e.g. training data
+
             window_size (int): The desired length of each sub-sequence. Should be
                                (input_sequence_length + target_sequence_length)
                                E.g. if you want the model to consider the past 100
