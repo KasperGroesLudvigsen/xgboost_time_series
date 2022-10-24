@@ -5,9 +5,7 @@ import pandas as pd
 def get_xgboost_x_y(
     indices: list, 
     data: np.array,
-    univariate: bool,
     target_sequence_length,
-    exo_feature_steps: int,
     input_seq_len: int
     ) -> Tuple[np.array, np.array]:
 
@@ -28,19 +26,6 @@ def get_xgboost_x_y(
         assert len(x) == input_seq_len
 
         y = data_instance[input_seq_len:input_seq_len+target_sequence_length]
-
-        if not univariate:
-
-            # Make FCR price array with input_seq_len prices
-            x_fcr = x[:, 0]
-
-            # Add the value of the exogenous variables at the last t in input_seq_len
-            x_exo = x[-exo_feature_steps:, 1:].flatten()
-
-            x = np.concatenate((x_fcr, x_exo))
-
-            # Discard exogenous variables
-            y = y[:, 0]
 
         # Create all_y and all_x objects in first loop iteration
         if i == 0:
