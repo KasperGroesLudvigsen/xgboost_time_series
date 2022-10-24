@@ -11,7 +11,14 @@ def get_xgboost_x_y(
 
     """
     Args:
-        exo_feature_steps: how many observations of each exogenous variable to include in input array
+
+        indices: List of index positions at which data should be sliced
+
+        data: A univariate time series
+
+        target_sequence_length: The forecasting horizon, m
+
+        input_seq_len: The length of the model input, n
     """
     print("Preparing data..")
 
