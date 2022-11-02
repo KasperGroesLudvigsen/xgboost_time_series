@@ -1,4 +1,4 @@
-# Repo for the article "Multi-step time series forecasting with XGBoost"
+# Repo for the article ["Multi-step time series forecasting with XGBoost"](https://towardsdatascience.com/multi-step-time-series-forecasting-with-xgboost-65d6820bec39)
 This is the repo for the Towards Data Science article titled "Multi-step time series forecasting with XGBoost"
 
 The article shows how to use an XGBoost model wrapped in sklearn's MultiOutputRegressor to produce forecasts
